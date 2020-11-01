@@ -1,7 +1,8 @@
 import React from "react";
+import { View } from "react-native";
 
-const Login = () => {
-  return <div></div>;
+const Impact = () => {
+  return <View></View>;
 };
 
-export default Login;
+export default Impact;
