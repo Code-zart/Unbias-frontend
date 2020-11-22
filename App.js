@@ -5,4 +5,4 @@ import Signup from "./src/scenes/signup";
 
 export default function App() {
   return <Login />;
-}
+};
