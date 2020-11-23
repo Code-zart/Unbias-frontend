@@ -4,8 +4,10 @@ import {
   Text,
   View,
   TextInput,
+  Image,
   TouchableOpacity,
 } from "react-native";
+import Street from "../../../assets/Street.png";
 
 const Login = () => {
   const [loginData, setLoginData] = useState(null);
@@ -19,6 +21,9 @@ const Login = () => {
     <View style={styles.container}>
       <Text style={styles.logo1}>COM+</Text>
       <Text style={styles.logo2}>PACT</Text>
+      <View style={styles.image}>
+        <Image source={Street} />
+      </View>
       <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
@@ -59,6 +64,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8B490",
     alignItems: "center",
     justifyContent: "center",
+  },
+  image: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 100,
+    height: 165,
+    paddingBottom: 20,
   },
   logo1: {
     fontWeight: "bold",
