@@ -3,22 +3,26 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import signUp from "../../../assets/sign-up.png";
 
-const Signup = () => {
+const Signup = ({ navigation }) => {
   const [signUpData, setSignUpData] = useState(null);
 
   const handleChange = (e) => {
     setSignUpData({ ...signUpData, [e.target.placeholder]: e.target.value });
-    console.log(signUpData);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.logo1}>COM+</Text>
       <Text style={styles.logo2}>PACT</Text>
+      <View style={styles.image}>
+        <Image source={signUp} />
+      </View>
       <View style={styles.inputView}>
         <TextInput
           style={styles.inputText}
@@ -44,10 +48,18 @@ const Signup = () => {
           onChangeText={handleChange}
         ></TextInput>
       </View>
-      <TouchableOpacity style={styles.loginBtn}>
+      <Text style={styles.password}>
+        Passwords must be 8-12 characters with at least 1 number and 2 special
+        characters (!, $, %, &, ^)
+      </Text>
+
+      <TouchableOpacity
+        style={styles.loginBtn}
+        onPress={() => navigation.navigate("Login")}
+      >
         <Text style={styles.loginText}>SIGNUP</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text style={styles.signup}>Already have an account? Login. </Text>
       </TouchableOpacity>
     </View>
@@ -74,6 +86,14 @@ const styles = StyleSheet.create({
     color: "#292525",
     marginBottom: 40,
   },
+  image: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: 100,
+    height: 200,
+    paddingBottom: 50,
+  },
   inputView: {
     width: "80%",
     backgroundColor: "#FFFFFF",
@@ -87,15 +107,13 @@ const styles = StyleSheet.create({
     height: 50,
     color: "black",
   },
-  forgot: {
-    color: "white",
+  password: {
+    width: "80%",
+    textAlign: "center",
+    color: "black",
     fontSize: 11,
   },
   signup: {
-    color: "white",
-    fontSize: 14,
-  },
-  loginText: {
     color: "white",
     fontSize: 14,
   },
@@ -106,8 +124,8 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
-    marginBottom: 10,
+    marginTop: 30,
+    marginBottom: 5,
   },
 });
 

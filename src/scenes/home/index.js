@@ -1,8 +1,13 @@
 import React from "react";
+import { Provider as PaperProvider } from "react-native-paper";
 import { View } from "react-native";
 
 const Home = () => {
-  return <View></View>;
+  return (
+    <PaperProvider>
+      <View></View>;
+    </PaperProvider>
+  );
 };
 
 export default Home;
