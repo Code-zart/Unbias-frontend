@@ -9,12 +9,11 @@ import {
 } from "react-native";
 import Street from "../../../assets/Street.png";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [loginData, setLoginData] = useState(null);
 
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.placeholder]: e.target.value });
-    // console.log(loginData);
   };
 
   return (
@@ -29,7 +28,7 @@ const Login = () => {
           style={styles.inputText}
           placeholder="Email"
           placeholderTextColor="#292525"
-          textContentType="email"
+          textContentType="emailAddress"
           onChange={handleChange}
         ></TextInput>
       </View>
@@ -46,10 +45,13 @@ const Login = () => {
       <TouchableOpacity>
         <Text style={styles.forgot}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Home")}
+        style={styles.loginBtn}
+      >
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Sign Up")}>
         <Text style={styles.signup}>SIGNUP</Text>
       </TouchableOpacity>
     </View>
